@@ -1,0 +1,96 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class operations {
+public:
+    int num1, num2;
+public:
+    void input() {
+        cout << "Enter two numbers to perform operations on: \n";
+        cin >> num1 >> num2;
+        cout << "\n";
+    }
+
+    void addition() {
+        cout << "Addition = " << num1 + num2;
+        cout << "\n";
+    }
+
+    void subtraction() {
+        cout << "Subtraction = " << num1 - num2;
+        cout << "\n";
+    }
+
+    void multiplication() {
+        cout << "Multiplication = " << num1 * num2;
+        cout << "\n";
+    }
+
+    void division() {
+        cout << "Division = " << (float)num1 / num2;
+        cout << "\n";
+    }
+
+    void power() {
+        cout << "Power = " << pow(num1, num2);
+        cout << "\n";
+    }
+
+    void exponential() {
+        cout << "Exponential = " << exp(num1 + num2);
+        cout << "\n";
+    }
+};
+int main() {
+    cout << " ===== Program to perform basic operations using Class, in CPP ===== \n\n";
+    operations op;
+    int choice;
+    do {
+        cout << "Choose an operation to perform: \n";
+        cout << "1. Addition\n";
+        cout << "2. Subtraction\n";
+        cout << "3. Multiplication\n";
+        cout << "4. Division\n";
+        cout << "5. Power\n";
+        cout << "6. Exponential\n";
+        cout << "0. Exit\n";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            op.input();
+            op.addition();
+            break;
+        case 2:
+            op.input();
+            op.subtraction();
+            break;
+        case 3:
+            op.input();
+            op.multiplication();
+            break;
+        case 4:
+            op.input();
+            op.division();
+            break;
+        case 5:
+            op.input();
+            op.power();
+            break;
+        case 6:
+            op.input();
+            op.exponential();
+            break;
+        case 0:
+            cout << "Exiting the program.\n";
+            break;
+        default:
+            cout << "Invalid choice. Please choose a valid operation.\n";
+            break;
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}

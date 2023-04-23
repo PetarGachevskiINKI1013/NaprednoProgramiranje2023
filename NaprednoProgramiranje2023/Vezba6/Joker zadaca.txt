@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+const int DECK_SIZE = 54;
+const int SUIT_SIZE = 13;
+
+string suits[4] = {"Kupa", "Karo", "Spato", "Crno"};
+string ranks[SUIT_SIZE] = {"Kec", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Dzhandar", "Chupa", "Pop"};
+
+void shuffleDeck(string deck[], int size) {
+    for (int i = 0; i < size; i++) {
+        int j = rand() % size;
+        string temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
+}
+
+int main() {
+    string deck[DECK_SIZE];
+    int index = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < SUIT_SIZE; j++) {
+            deck[index] = ranks[j] + " "+ suits[i];
+            index++;
+        }
+    }
+    deck[52] = "Dzoker";
+    deck[53] = "Dzoker";
+    cout << "Podreden shpil:" << endl;
+    for (int i = 0; i < DECK_SIZE; i++) {
+        cout << deck[i] << endl;
+    }
+
+    cout << endl;
+
+    srand(time(NULL));
+    shuffleDeck(deck, DECK_SIZE);
+
+    cout << "Izmeshan shpil:" << endl;
+    for (int i = 0; i < DECK_SIZE; i++) {
+        cout << deck[i] << endl;
+    }
+
+    string player1[13], player2[13], player3[13], player4[13];
+    int cardIndex = 0;
+    for (int i = 0; i < 13; i++) {
+        player1[i] = deck[cardIndex];
+        cardIndex++;
+        player2[i] = deck[cardIndex];
+        cardIndex++;
+        player3[i] = deck[cardIndex];
+        cardIndex++;
+        player4[i] = deck[cardIndex];
+        cardIndex++;
+    }
+
+    cout << endl << "Igrac 1\t\t\tIgrac 2\t\t\t\tIgrac 3\t\t\t\tIgrac 4" << endl;
+    cout << "------------------------------------------------------------" << endl;
+
+    for (int i = 0; i < 13; i++) {
+        cout << left << setw(20) << player1[i] << setw(20) << player2[i] << setw(20) << player3[i] << setw(20) << player4[i] << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// defining the class Shape to demonstrate the concept of Hierarchical Inheritance in CPP
+class Shape {
+protected:
+    float width, height;
+
+public:
+    void setDimensions(float w, float h) {
+        cout << "Setting the Dimensions using the parent Class: Shape\n";
+        cout << "The dimensions are: " << w << " and " << h << "\n\n";
+        width = w;
+        height = h;
+    }
+};
+
+// Class Rectangle inherits the Shape class
+class Rectangle : public Shape {
+public:
+    float area() {
+        return (width * height);
+    }
+
+    float volume(float depth) {
+        return (width * height * depth);
+    }
+};
+
+// Class Triangle inherits the Shape class
+class Triangle : public Shape {
+protected:
+    float hypotenuse;
+
+public:
+    void setDimensions(float w, float h) {
+        Shape::setDimensions(w, h);
+        hypotenuse = sqrt(w * w + h * h);
+        cout << "The hypotenuse is: " << hypotenuse << "\n\n";
+    }
+
+    float area() {
+        return (width * height / 2);
+    }
+
+    float volume(float depth) {
+        return (width * height * hypotenuse * depth / 6);
+    }
+};
+
+int main() {
+    cout << "===== Program to demonstrate the concept of Hierarchical Inheritance in CPP ===== \n\n";
+
+    // Declaring the Class objects to access the class members
+    Rectangle rectangle;
+    Triangle triangle;
+
+    rectangle.setDimensions(10, 13);
+    cout << "Area of the Rectangle computed using Rectangle Class is : " << rectangle.area() << "\n";
+    cout << "Volume of the Rectangle computed using Rectangle Class is : " << rectangle.volume(4) << "\n\n";
+
+    triangle.setDimensions(10, 13);
+    cout << "Area of the Triangle computed using Triangle Class is: " << triangle.area() << "\n";
+    cout << "Volume of the Triangle computed using Triangle Class is : " << triangle.volume(4) << "\n\n";
+
+    return 0;
+}

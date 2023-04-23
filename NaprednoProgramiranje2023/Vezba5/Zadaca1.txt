@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string Ime = "Petar";
+string Prezime = "Gachevski";
+
+string changeFirstName(string name) {
+    name[0] = '_';
+    name[1] = '/';
+    name[2] = '[';
+    name[3] = '*';
+    return name;
+}
+
+string changeLastName(string lastName) {
+    lastName[0] = ';';
+    lastName[1] = '?';
+    lastName[2] = '!';
+    lastName[3] = '@';
+    return lastName;
+}
+
+int main() {
+
+    cout << Ime << endl;
+
+    string smenetoIme = changeFirstName(Ime);
+
+    cout <<  smenetoIme << endl;
+
+    cout <<  Prezime << endl;
+
+    string smenetoPrezime = changeLastName(Prezime);
+
+    cout <<  smenetoPrezime << endl;
+
+    return 0;
+}

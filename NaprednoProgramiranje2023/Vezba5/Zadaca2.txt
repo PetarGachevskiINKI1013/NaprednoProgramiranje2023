@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+int main() {
+    const string pesna = "Octopus's Garden - Beatles";
+    const string izveduvach = "Beatles";
+
+    cout << "pesna: " << pesna << endl;
+    cout << "cela Sodzina - p: " << pesna << endl;
+
+    const char* p = &pesna[0];
+    cout << "pocetna pozicija: " << *p << endl;
+    cout << "adresa na pocetok: " << (void*)p << endl;
+
+    int pomestuvanje = pesna.length() - izveduvach.length();
+    p += pomestuvanje;
+
+    cout << "\npremestuvanje do ime na izveduvach - p+" << pomestuvanje << ":" << endl;
+    cout << "sodrzina po presmetan pocetok: " << p << endl;
+    cout << "adresa od koja pochnuva segashnata sodrzina: " << (void*)p << endl;
+
+    return 0;
+}

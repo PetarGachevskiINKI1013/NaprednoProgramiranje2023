@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+const int DECK_SIZE = 54;
+const int SUIT_SIZE = 13;
+
+string suits[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+string ranks[SUIT_SIZE] = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+
+void shuffleDeck(string deck[], int size) {
+    for (int i = 0; i < size; i++) {
+        int j = rand() % size;
+        string temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
+}
+
+int main() {
+    string deck[DECK_SIZE];
+    int index = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < SUIT_SIZE; j++) {
+            deck[index] = ranks[j] + " of " + suits[i];
+            index++;
+        }
+    }
+    deck[52] = "Joker";
+    deck[53] = "Joker";
+
+    cout << "Podreden shpil:" << endl;
+    for (int i = 0; i < DECK_SIZE; i++) {
+        cout << deck[i] << endl;
+    }
+
+    cout << endl;
+    
+    srand(time(NULL));
+    shuffleDeck(deck, DECK_SIZE);
+
+    cout << "Izmeshan shpil:" << endl;
+    for (int i = 0; i < DECK_SIZE; i++) {
+        cout << deck[i] << endl;
+    }
+
+    return 0;
+}
+//Најпрво се дефинираат две константи Deck Size(54) и Suit Size(13). Suits е за боите, a Ranks за бројот на картите.
+//Функцијата ShuffleDeck е дефинирана и таа со rand() ги комбинира броевите со боите на картите по случаен избор. 
+//Ги комбинира со тоа што се генерира рандом индекс j помеѓу 0 и 1 и од индекс i преминува во индекс ј и тоа е случај за секоја од картите.
+//main функцијата иницијализира DECK SIZE низата (54) и ги реди картите по редослед (Hearts, Diamonds, Clubs, Spades). Се додаваат и два џокери
+//Потоа srand функцијата од <ctime> библиотеката е повикана со параметар време (NULL) со што се генерира број во зависност од моменталното време.
+//ShuffleDeck ги меша картите.
+//На крај се печатат прво Подредениот Шпил а под него и измешаниот шпил.

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int sobiranje(int a, int b) {
+    return a + b;
+}
+
+int odzemanje(int a, int b) {
+    return a - b;
+}
+
+float delenje(int a, int b) {
+    return (float)a / (float)b;
+}
+
+double stepen(int a, int b) {
+    return pow((double)a, (double)b);
+}
+
+void calculate(int a, int b, int (*operation)(int, int), string op_name) {
+    int rezultat = operation(a, b);
+    cout << "Rezultatot na " << op_name << " e: " << rezultat << endl;
+}
+
+int main() {
+    int a = (int)'P', b = (int)'G';
+    int (*op)(int, int);
+    
+    op = &sobiranje;
+    calculate(a, b, op, "sobiranje");
+    
+    op = &odzemanje;
+    calculate(a, b, op, "odzemanje");
+    
+    float (*fop)(int, int);
+    fop = &delenje;
+    calculate(a, b, (int (*)(int, int))fop, "delenje");
+    
+    double (*dop)(int, int);
+    dop = &stepen;
+    calculate(a, b, (int (*)(int, int))dop, "stepen");
+    
+    return 0;
+}

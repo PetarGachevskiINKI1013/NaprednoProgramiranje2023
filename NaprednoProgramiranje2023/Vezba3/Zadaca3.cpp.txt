@@ -1,0 +1,89 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+enum Mesec {
+    Jan=1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+};
+
+int main () {
+    int i;
+    for (i=Jan; i<=Dec; i++) {
+        cout<< i << " ";
+    }
+    cout << endl;
+
+    int mesec;
+    cout << "Vnesete go brojot na mesecot : ";
+    cin >> mesec;
+
+    switch (mesec) {
+        case 1:
+        case 2:
+        case 12:
+            cout << "Zima, ";
+            break;
+        case 3:
+        case 4:
+        case 5:
+            cout << "Prolet, ";
+            break;
+        case 6:
+        case 7:
+        case 8:
+            cout << "Leto, ";
+            break;
+        case 9:
+        case 10:
+        case 11:
+            cout << "Esen, ";
+            break;
+        default:
+            cout << "Vnesen e nevaliden mesec!\n";
+            return 1;
+    }
+
+    cout << "mesecot e ";
+    switch (mesec) {
+        case 1:
+            cout << "prv vo godinata.\n";
+            break;
+        case 2:
+            cout << "vtor vo godinata.\n";
+            break;
+        case 3:
+            cout << "tret vo godinata.\n";
+            break;
+        case 4:
+            cout << "chetvrt vo godinata.\n";
+            break;
+        case 5:
+            cout << "petti vo godinata.\n";
+            break;
+        case 6:
+            cout << "sesti vo godinata.\n";
+            break;
+        case 7:
+            cout << "sedmi vo godinata.\n";
+            break;
+        case 8:
+            cout << "osmi vo godinata.\n";
+            break;
+        case 9:
+            cout << "deveti vo godinata.\n";
+            break;
+        case 10:
+            cout << "deseti vo godinata.\n";
+            break;
+        case 11:
+            cout << "edinaesti vo godinata.\n";
+            break;
+        case 12:
+            cout << "dvanaesti vo godinata.\n";
+            break;
+        default:
+            cout << "Vnesen e nevaliden mesec!\n";
+            return 1;
+    }
+    return 0;
+}
+
