@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+    string sentence;
+    int upperCount = 0, lowerCount = 0, digitCount = 0, specialCount = 0, charCount = 0;
+    cout << "Vnesi recenica: ";
+    getline(cin, sentence);
+    for (char c : sentence) {
+        if (isupper(c)) {
+            upperCount++;
+        } else if (islower(c)) {
+            lowerCount++;
+        } else if (isdigit(c)) {
+            digitCount++;
+        } else if (ispunct(c)) {
+            specialCount++;
+        }
+        charCount++;
+    }
+    cout << "Golemi bukvi: " << upperCount << endl;
+    cout << "Mali bukvi: " << lowerCount << endl;
+    cout << "Brojki: " << digitCount << endl;
+    cout << "Specijalni karakteri: " << specialCount << endl;
+    cout << "Vkupen broj na karakteri: " << charCount << endl;
+    return 0;
+}
